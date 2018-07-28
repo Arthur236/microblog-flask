@@ -2,13 +2,15 @@ import logging
 import os
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask import Flask
-from config import Config
+from config import app_config
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+config_name = os.getenv('APP_SETTINGS')
+
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config.from_object(app_config[config_name])
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
