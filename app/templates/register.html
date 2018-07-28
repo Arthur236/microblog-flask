@@ -1,37 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=64) }}<br>
-            {% for error in form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+    <div class="ui two column centered grid">
+        <div class="column">
+            <h1 class="ui header">Register</h1>
+
+            <form class="ui form error" action="" method="post">
+
+                <div class="field">
+                    {{ form.hidden_tag() }}
+                </div>
+
+                <div class="field">
+                    {{ form.username.label }}
+                    {{ form.username(size=32) }}
+
+                    {% for error in form.username.errors %}
+                        <div class="ui error message">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="field">
+                    {{ form.email.label }}
+                    {{ form.email(size=64) }}
+
+                    {% for error in form.email.errors %}
+                        <div class="ui error message">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="field">
+                    {{ form.password.label }}
+                    {{ form.password(size=32) }}
+
+                    {% for error in form.password.errors %}
+                        <div class="ui error message">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="field">
+                    {{ form.password2.label }}
+                    {{ form.password2(size=32) }}
+
+                    {% for error in form.password2.errors %}
+                        <div class="ui error message">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="field">
+                    {{ form.submit(class_='ui green button fluid') }}
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

@@ -2,22 +2,37 @@
 
 {% block content %}
     <h1>Edit Profile</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
+
+    <form class="ui form error" action="" method="post">
+
+        <div class="field">
+            {{ form.hidden_tag() }}
+        </div>
+
+        <div class="field">
+            {{ form.username.label }}
+            {{ form.username(size=32) }}
+
             {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+                <div class="ui error message">
+                    {{ error }}
+                </div>
             {% endfor %}
-        </p>
-        <p>
-            {{ form.about_me.label }}<br>
-            {{ form.about_me(cols=50, rows=4) }}<br>
+        </div>
+
+        <div class="field">
+            {{ form.about_me.label }}
+            {{ form.about_me(cols=50, rows=4) }}
+
             {% for error in form.about_me.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+                <div class="ui error message">
+                    {{ error }}
+                </div>
             {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
+        </div>
+
+        <div class="field">
+            {{ form.submit(class_='ui green button fluid') }}
+        </div>
     </form>
 {% endblock %}

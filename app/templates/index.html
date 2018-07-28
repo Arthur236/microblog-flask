@@ -1,28 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
+    <h1 class="header">Hi, {{ current_user.username }}!</h1>
+
     {% if form %}
-        <form action="" method="post">
-            {{ form.hidden_tag() }}
-            <p>
-                {{ form.post.label }}<br>
-                {{ form.post(cols=32, rows=4) }}<br>
+        <form class="ui form" action="" method="post">
+
+            <div class="field">
+                {{ form.hidden_tag() }}
+            </div>
+
+            <div class="field">
+                {{ form.post.label }}
+                {{ form.post(cols=32, rows=4) }}
+
                 {% for error in form.post.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
+                    <div class="ui error message">
+                        {{ error }}
+                    </div>
                 {% endfor %}
-            </p>
-            <p>{{ form.submit() }}</p>
+            </div>
+
+            <div class="field">
+                <p>{{ form.submit(class_='ui blue button') }}</p>
+            </div>
         </form>
     {% endif %}
 
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
+
     {% if prev_url %}
-        <a href="{{ prev_url }}">Newer posts</a>
+        <div class="ui pagination menu">
+            <a class="active item" href="{{ prev_url }}">Previous</a>
+        </div>
     {% endif %}
+
     {% if next_url %}
-        <a href="{{ next_url }}">Older posts</a>
+        <div class="ui pagination menu">
+            <a class="active item" href="{{ next_url }}">Next</a>
+        </div>
     {% endif %}
+
 {% endblock %}
