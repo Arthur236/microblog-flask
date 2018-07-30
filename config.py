@@ -7,7 +7,7 @@ class Config(object):
     """
     Parent configuration class
     """
-    DEBUG = False
+    FLASK_DEBUG = False
     CSRF_ENABLED = True
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'gjOFUb9oVFDfCDmvdaFjLYm91bSOETnvgGfuJWnx'
     SQLALCHEMY_DATABASE_URI = \
@@ -28,7 +28,7 @@ class DevelopmentConfig(Config):
     """
     Development configurations
     """
-    DEBUG = True
+    FLASK_DEBUG = True
 
 
 class TestingConfig(Config):
@@ -38,21 +38,21 @@ class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = \
         os.environ.get('TEST_DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
-    DEBUG = True
+    FLASK_DEBUG = True
 
 
 class StagingConfig(Config):
     """
     Staging configurations
     """
-    DEBUG = True
+    FLASK_DEBUG = True
 
 
 class ProductionConfig(Config):
     """
     Production configurations
     """
-    DEBUG = False
+    FLASK_DEBUG = False
     TESTING = False
 
 

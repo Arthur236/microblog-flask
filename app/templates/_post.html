@@ -10,6 +10,10 @@
             <div class="description">
                 {{ post.body }}
             </div>
+
+            <div class="ui mini pointing grey label">
+                Updated: {{ moment(post.timestamp).fromNow() }}
+            </div>
         </div>
     </div>
 </div>

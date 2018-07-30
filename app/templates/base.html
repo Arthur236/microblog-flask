@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="../static/css/semantic.simplex.min.css"/>
+    {% block styles %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
 
     {% if title %}
@@ -45,4 +46,8 @@
 
 <script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../static/js/semantic.min.js"></script>
+<!-- Generate moment.js script tag -->
+{{ moment.include_moment() }}
+
+{% block scripts %}{% endblock %}
 </html>

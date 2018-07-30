@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="../static/components/list.css"/>
+{% endblock %}
+
 {% block content %}
     <div class="ui two column centered grid">
         <div class="column">
@@ -22,7 +26,9 @@
 
                 <div class="item">
                     <div class="content">
-                        {% if user.last_seen %}Last seen on: {{ user.last_seen }}{% endif %}
+                        {% if user.last_seen %}
+                            Last seen on: {{ moment(user.last_seen).format('LLL') }}
+                        {% endif %}
                     </div>
                 </div>
 

@@ -4,7 +4,7 @@
     <h1 class="header">Hi, {{ current_user.username }}!</h1>
 
     {% if form %}
-        <form class="ui form" action="" method="post">
+        <form class="ui form error" action="" method="post">
 
             <div class="field">
                 {{ form.hidden_tag() }}
