@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/list.min.css"/>
+{% endblock %}
+
 {% block content %}
-    <h1 class="header">Hi, {{ current_user.username }}!</h1>
+    <h1 class="header">{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
 
     {% if form %}
         <form class="ui form error" action="" method="post">
@@ -31,16 +35,10 @@
         {% include '_post.html' %}
     {% endfor %}
 
-    {% if prev_url %}
-        <div class="ui pagination menu">
-            <a class="active item" href="{{ prev_url }}">Previous</a>
-        </div>
-    {% endif %}
+    <div class="ui pagination menu">
+        <a class="{% if not prev_url %}disabled{% endif %} item" href="{{ prev_url or '#' }}"><i class="angle left icon"></i></a>
 
-    {% if next_url %}
-        <div class="ui pagination menu">
-            <a class="active item" href="{{ next_url }}">Next</a>
-        </div>
-    {% endif %}
+        <a class="{% if not next_url %}disabled{% endif %} item" href="{{ next_url or '#' }}"><i class="angle right icon"></i></a>
+    </div>
 
 {% endblock %}

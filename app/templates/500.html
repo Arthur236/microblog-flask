@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="header">An unexpected error has occurred</h1>
+    <h1 class="header">{{ _('An unexpected error has occurred') }}</h1>
 
     <p>
-        The administrator has been notified. Sorry for the inconvenience!
+        {{ _('The administrator has been notified. Sorry for the inconvenience!') }}
     </p>
     <p>
-        <a href="{{ url_for('index') }}">Back</a>
+        <a href="{{ url_for('index') }}">{{ _('Back') }}</a>
     </p>
 {% endblock %}

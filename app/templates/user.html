@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block styles %}
-    <link rel="stylesheet" type="text/css" href="../static/components/list.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/list.min.css"/>
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@
             <div class="ui relaxed divided list">
                 <div class="item">
                     <div class="content">
-                        User: {{ user.username }}
+                        {{ _('User') }}: {{ user.username }}
                     </div>
                 </div>
 
@@ -27,25 +27,25 @@
                 <div class="item">
                     <div class="content">
                         {% if user.last_seen %}
-                            Last seen on: {{ moment(user.last_seen).format('LLL') }}
+                            {{ _('Last seen on') }}: {{ moment(user.last_seen).format('LLL') }}
                         {% endif %}
                     </div>
                 </div>
 
                 <div class="item">
                     <div class="content">
-                        {{ user.followers.count() }} followers, {{ user.followed.count() }} following.
+                        {{ _('%(count)d followers', count=user.followers.count()) }}, {{ _('%(count)d following', count=user.followed.count()) }}
                     </div>
                 </div>
 
                 <div class="item">
                     <div class="content">
                         {% if user == current_user %}
-                            <a class="ui mini blue button" href="{{ url_for('edit_profile') }}">Edit your profile</a>
+                            <a class="ui mini blue button" href="{{ url_for('edit_profile') }}">{{ _('Edit your profile') }}</a>
                         {% elif not current_user.is_following(user) %}
-                            <a href="{{ url_for('follow', username=user.username) }}">Follow</a>
+                            <a href="{{ url_for('follow', username=user.username) }}">{{ _('Follow') }}</a>
                         {% else %}
-                            <a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a>
+                            <a href="{{ url_for('unfollow', username=user.username) }}">{{ _('Unfollow') }}</a>
                         {% endif %}
                     </div>
                 </div>
@@ -59,16 +59,10 @@
         {% include '_post.html' %}
     {% endfor %}
 
-    {% if prev_url %}
-        <div class="ui pagination menu">
-            <a class="active item" href="{{ prev_url }}">Previous</a>
-        </div>
-    {% endif %}
+    <div class="ui pagination menu">
+        <a class="{% if not prev_url %}disabled{% endif %} item" href="{{ prev_url or '#' }}"><i class="angle left icon"></i></a>
 
-    {% if next_url %}
-        <div class="ui pagination menu">
-            <a class="active item" href="{{ next_url }}">Next</a>
-        </div>
-    {% endif %}
+        <a class="{% if not next_url %}disabled{% endif %} item" href="{{ next_url or '#' }}"><i class="angle right icon"></i></a>
+    </div>
 
 {% endblock %}

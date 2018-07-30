@@ -3,7 +3,7 @@
 {% block content %}
     <div class="ui two column centered grid">
         <div class="column">
-            <h1 class="ui header">Sign In</h1>
+            <h1 class="ui header">{{ _('Sign In') }}</h1>
 
             <form class="ui form error" action="" method="post" novalidate>
 
@@ -42,13 +42,13 @@
                 </div>
 
                 <div class="field">
-                    New User?
-                    <a href="{{ url_for('register') }}">Click to Register!</a>
+                    {{ _('New User?') }}
+                    <a href="{{ url_for('register') }}">{{ _('Click to Register!') }}</a>
                 </div>
 
                 <div class="field">
-                    Forgot Your Password?
-                    <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
+                    {{ _('Forgot Your Password?') }}
+                    <a href="{{ url_for('reset_password_request') }}">{{ _('Click to Reset It') }}</a>
                 </div>
             </form>
         </div>
