@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link rel="stylesheet" type="text/css" href="../static/css/semantic.simplex.min.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/themes/basic/assets/fonts/icons.svg"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/icon.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/icon.min.css"/>
 
     {% block styles %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
@@ -50,6 +51,21 @@
 <!-- Generate moment.js script tag -->
 {{ moment.include_moment() }}
 {{ moment.lang(g.locale) }}
+
+<script type="text/javascript">
+    function translate(sourceElem, destElem, sourceLang, destLang) {
+        $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+        $.post('/translate', {
+            text: $(sourceElem).text(),
+            source_language: sourceLang,
+            dest_language: destLang
+        }).done(function (response) {
+            $(destElem).text(response['text'])
+        }).fail(function () {
+            $(destElem).text("{{ _('Error: Could not contact server.') }}");
+        });
+    }
+</script>
 
 {% block scripts %}{% endblock %}
 </html>

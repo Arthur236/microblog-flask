@@ -11,8 +11,19 @@
 
             {{ _('%(username)s', username=user_link) }}
 
-            <div class="description">
+            <div class="description" id="post{{ post.id }}">
                 {{ post.body }}
+
+                {% if post.language and post.language != g.locale %}
+                    <br>
+                    <span id="translation{{ post.id }}">
+                        <a href="javascript:translate(
+                                '#post{{ post.id }}',
+                                '#translation{{ post.id }}',
+                                '{{ post.language }}',
+                                '{{ g.locale }}');">{{ _('Translate') }}</a>
+                    </span>
+                {% endif %}
             </div>
 
             <div class="ui mini pointing grey label">

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-30 14:07+0300\n"
+"POT-Creation-Date: 2018-08-06 13:21+0300\n"
 "PO-Revision-Date: 2018-07-30 14:12+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -34,7 +34,7 @@ msgstr "パスワード"
 msgid "Remember Me"
 msgstr "私を覚えてますか"
 
-#: app/forms.py:12 app/routes.py:74 app/templates/login.html:6
+#: app/forms.py:12 app/routes.py:76 app/templates/login.html:6
 msgid "Sign In"
 msgstr "サインイン"
 
@@ -46,7 +46,7 @@ msgstr "Eメール"
 msgid "Repeat Password"
 msgstr "パスワードを再度入力してください"
 
-#: app/forms.py:22 app/routes.py:95 app/templates/register.html:6
+#: app/forms.py:22 app/routes.py:97 app/templates/register.html:6
 msgid "Register"
 msgstr "登録"
 
@@ -74,68 +74,72 @@ msgstr "提出する"
 msgid "Say something"
 msgstr "何か言って"
 
-#: app/routes.py:30
-msgid "Your post is now live!"
-msgstr "あなたの投稿は現在ライブです！"
-
-#: app/routes.py:39 app/templates/base.html:22
+#: app/routes.py:41 app/templates/base.html:23
 msgid "Home"
 msgstr "ホーム"
 
-#: app/routes.py:54 app/templates/base.html:23
+#: app/routes.py:56 app/templates/base.html:24
 msgid "Explore"
 msgstr "探検する"
 
-#: app/routes.py:67
+#: app/routes.py:69
 msgid "Invalid username or password"
 msgstr "ユーザー名かパスワードが無効"
 
-#: app/routes.py:93
+#: app/routes.py:95
 msgid "Congratulations, you are now a registered user!"
 msgstr "おめでとう、あなたは登録ユーザーになりました！"
 
-#: app/routes.py:108
+#: app/routes.py:110
 msgid "Check your email for the instructions to reset your password"
 msgstr "電子メールでパスワードをリセットする手順を確認してください"
 
-#: app/routes.py:111 app/templates/reset_password_request.html:6
+#: app/routes.py:113 app/templates/reset_password_request.html:6
 msgid "Reset Password"
 msgstr "パスワードを再設定する"
 
-#: app/routes.py:125
+#: app/routes.py:127
 msgid "Your password has been reset."
 msgstr "あなたのパスワードはリセットされました。"
 
-#: app/routes.py:153
+#: app/routes.py:155
 msgid "Your changes have been saved."
 msgstr "変更内容が保存されました。"
 
-#: app/routes.py:158 app/templates/edit_profile.html:4
+#: app/routes.py:160 app/templates/edit_profile.html:4
 msgid "Edit Profile"
 msgstr "プロファイル編集"
 
-#: app/routes.py:167 app/routes.py:183
+#: app/routes.py:169 app/routes.py:185
 #, python-format
 msgid "User %(username)s not found."
 msgstr "ユーザー %(username)s 見つかりません"
 
-#: app/routes.py:170
+#: app/routes.py:172
 msgid "You cannot follow yourself!"
 msgstr "あなたは自分自身に従うことはできません！"
 
-#: app/routes.py:174
+#: app/routes.py:176
 #, python-format
 msgid "You are following %(username)s!"
 msgstr "あなたは次のとおりです %(username)s！"
 
-#: app/routes.py:186
+#: app/routes.py:188
 msgid "You cannot unfollow yourself!"
 msgstr "あなたは自分自身をアンフォローすることはできません！"
 
-#: app/routes.py:190
+#: app/routes.py:192
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "あなたはフォローしていません %(username)s。"
+
+#: app/translate.py:10
+msgid "Error: the translation service is not configured."
+msgstr ""
+
+#: app/translate.py:17
+msgid "Error: the translation service failed."
+msgstr ""
 
 #: app/templates/404.html:4
 msgid "Not Found"
@@ -158,22 +162,30 @@ msgstr "管理者に通知されました。ご不便おかけしてすみませ
 msgid "%(username)s"
 msgstr "%(username)s"
 
-#: app/templates/_post.html:19
+#: app/templates/_post.html:24
+msgid "Translate"
+msgstr ""
+
+#: app/templates/_post.html:30
 #, python-format
 msgid "Updated: %(when)s"
 msgstr "更新しました: %(when)s"
 
-#: app/templates/base.html:16
+#: app/templates/base.html:17
 msgid "Welcome to Microblog"
 msgstr "ようこそ Microblog"
 
-#: app/templates/base.html:25
+#: app/templates/base.html:26
 msgid "Login"
 msgstr "ログイン"
 
-#: app/templates/base.html:28
+#: app/templates/base.html:29
 msgid "Logout"
 msgstr "ログアウト"
+
+#: app/templates/base.html:65
+msgid "Error: Could not contact server."
+msgstr ""
 
 #: app/templates/index.html:8
 #, python-format
@@ -229,4 +241,7 @@ msgstr "フォローする"
 #: app/templates/user.html:48
 msgid "Unfollow"
 msgstr "アンフォロー"
+
+#~ msgid "Your post is now live!"
+#~ msgstr "あなたの投稿は現在ライブです！"
 
