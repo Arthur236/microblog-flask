@@ -28,6 +28,8 @@ class Config(object):
 
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
 
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+
 
 class DevelopmentConfig(Config):
     """

@@ -20,14 +20,28 @@
 
 <body>
 <div class="ui secondary pointing menu">
-    <a class="item" href="{{ url_for('main.index') }}">{{ _('Home') }}</a>
+    <a class="active item" href="{{ url_for('main.index') }}">{{ _('Home') }}</a>
     <a class="item" href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
-    {% if current_user.is_anonymous %}
-        <a class="item" href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
-    {% else %}
-        <a class="item" href="{{ url_for('main.user', username=current_user.username) }}">Profile</a>
-        <a class="item" href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
-    {% endif %}
+
+    <div class="right menu">
+        <div class="item">
+            {% if g.search_form %}
+                <form class="ui form" method="get" action="{{ url_for('main.search') }}">
+                    <div class="ui icon input">
+                        {{ g.search_form.q(size=20, placeholder=g.search_form.q.label.text) }}
+                        <i class="search link icon"></i>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+
+        {% if current_user.is_anonymous %}
+            <a class="item" href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
+        {% else %}
+            <a class="item" href="{{ url_for('main.user', username=current_user.username) }}">Profile</a>
+            <a class="item" href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
+        {% endif %}
+    </div>
 </div>
 
 {% with messages = get_flashed_messages() %}
