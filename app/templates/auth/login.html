@@ -43,12 +43,12 @@
 
                 <div class="field">
                     {{ _('New User?') }}
-                    <a href="{{ url_for('register') }}">{{ _('Click to Register!') }}</a>
+                    <a href="{{ url_for('auth.register') }}">{{ _('Click to Register!') }}</a>
                 </div>
 
                 <div class="field">
                     {{ _('Forgot Your Password?') }}
-                    <a href="{{ url_for('reset_password_request') }}">{{ _('Click to Reset It') }}</a>
+                    <a href="{{ url_for('auth.reset_password_request') }}">{{ _('Click to Reset It') }}</a>
                 </div>
             </form>
         </div>

@@ -4,7 +4,7 @@
 
         <div class="content">
             {% set user_link %}
-            <a class="header" href="{{ url_for('user', username=post.author.username) }}">
+            <a class="header" href="{{ url_for('main.user', username=post.author.username) }}">
                 {{ post.author.username }}
             </a>
             {% endset %}
